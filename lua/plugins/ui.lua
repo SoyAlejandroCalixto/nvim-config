@@ -9,15 +9,24 @@ return {
         end
     },
     {
-        "vim-airline/vim-airline",
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
         config = function()
-            vim.g.airline_section_y = ''
-            vim.g.airline_section_z = '%l:%c'
-            vim.g.airline_theme = 'onedark'
+            require('lualine').setup({
+                options = {
+                    component_separators = { left = '', right = ''},
+                    section_separators = { left = '', right = ''},
+                },
+                sections = {
+                    lualine_a = {'mode'},
+                    lualine_b = {'branch', 'diff', 'diagnostics'},
+                    lualine_c = {'filename'},
+                    lualine_x = {'filetype'},
+                    lualine_y = {'progress'},
+                    lualine_z = {'location'}
+                },
+            })
         end
-    },
-    {
-        "vim-airline/vim-airline-themes"
     },
     {
         "nvim-tree/nvim-tree.lua",
@@ -37,9 +46,6 @@ return {
       "folke/which-key.nvim",
       event = "VeryLazy",
       opts = {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
       },
       keys = {
         {
@@ -60,16 +66,28 @@ return {
         event = "User FilePost",
     },
     {
-      "folke/noice.nvim",
-      event = "VeryLazy",
-      opts = {
-        -- add any options here
-      },
-      dependencies = {
-        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-        "MunifTanjim/nui.nvim",
-        -- "rcarriga/nvim-notify",
-        }
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+        },
+        dependencies = {
+          "MunifTanjim/nui.nvim",
+          "rcarriga/nvim-notify",
+        },
+        config = function()
+            require("noice").setup({
+                routes = {
+                  { filter = { event = "msg_show", find = "línea más" }, opts = { skip = true }, },
+                  { filter = { event = "msg_show", find = "líneas más" }, opts = { skip = true }, },
+                  { filter = { event = "msg_show", find = "línea menos" }, opts = { skip = true }, },
+                  { filter = { event = "msg_show", find = "líneas menos" }, opts = { skip = true }, },
+                  { filter = { event = "msg_show", find = "fewer lines" }, opts = { skip = true }, },
+                  { filter = { event = "msg_show", find = "cambio;" }, opts = { skip = true }, },
+                  { filter = { event = "msg_show", find = "cambios;" }, opts = { skip = true }, },
+                  { filter = { event = "msg_show", find = "Este es el cambio más" }, opts = { skip = true }, },
+                },
+            })
+        end
     },
     {
       'nvimdev/dashboard-nvim',

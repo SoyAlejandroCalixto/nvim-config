@@ -45,7 +45,7 @@ require'nvim-treesitter.configs'.setup {
     highlight = {
         enable = true,
     },
-    ensure_installed = { 'lua', 'python', 'html', 'css', 'javascript', 'typescript', 'tsx', 'rust', 'markdown', 'markdown_inline' }
+    ensure_installed = { 'lua', 'bash', 'regex', 'python', 'html', 'css', 'javascript', 'typescript', 'tsx', 'rust', 'markdown', 'markdown_inline' }
 }
 
 -- completion interface plugin config

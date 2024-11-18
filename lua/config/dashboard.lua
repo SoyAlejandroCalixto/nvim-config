@@ -3,6 +3,7 @@ local keymap = vim.keymap
 local dashboard = require("dashboard")
 
 local conf = {}
+
 conf.header = {
   "                                                       ",
   "                                                       ",
@@ -24,8 +25,6 @@ conf.header = {
   "                        ██████                         ",
   "                        ██████                         ",
   "                         ████                          ",
-  "                                                       ",
-  "                        neovim                         ",
   "                                                       ",
   "                                                       ",
   "                                                       ",

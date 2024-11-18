@@ -63,7 +63,15 @@ return {
         ---@module "ibl"
         ---@type ibl.config
         opts = {},
-        event = "User FilePost",
+        config = function()
+            require("ibl").setup({
+                exclude = { filetypes = {
+                    'dashboard'
+                }},
+                indent = { char = '│' },
+                scope = { show_start = false, show_end = false },
+            })
+        end
     },
     {
         "folke/noice.nvim",

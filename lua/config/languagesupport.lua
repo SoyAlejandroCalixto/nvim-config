@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- mason is the plugin that allows you to install lsp more easily by placing their names in the 'ensure_installed' list
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'lua_ls', 'pyright', 'html', 'cssls', 'tailwindcss', 'ts_ls', 'emmet_language_server', 'rust_analyzer', 'eslint-lsp' },
+    ensure_installed = { 'lua_ls', 'pyright', 'html', 'cssls', 'tailwindcss', 'ts_ls', 'emmet_language_server', 'rust_analyzer' },
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({})
@@ -55,14 +55,14 @@ require'nvim-treesitter.configs'.setup {
 -- nvim-lint is the plugin that allows you to run linters on the filetypes you specify
 -- set the linters you want to use in the 'ensure_installed' list and set the filetypes you want to lint in 'linters_by_ft' object
 require("mason-nvim-lint").setup({
-    ensure_installed = { "standardjs", "flake8" },
+    ensure_installed = { 'eslint_d', 'flake8' },
     automatic_installation = true,
 })
 
 local lint = require("lint")
 lint.linters_by_ft = {
-    javascript = { "standardjs" },
-    python = { "flake8" }
+    javascript = { 'eslint_d' },
+    python = { 'flake8' }
 }
 
 -- Autocommand para ejecutar el linter al guardar o salir del modo de inserción
@@ -70,7 +70,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
     callback = function()
         local lint_status, lint = pcall(require, "lint")
         if lint_status then
-            lint.try_lint()
+            lint.try_lint(nil, { ignore_errors = true })
         end
     end,
 })

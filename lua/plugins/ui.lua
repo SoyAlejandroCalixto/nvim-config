@@ -93,6 +93,7 @@ return {
                   { filter = { event = "msg_show", find = "cambio;" }, opts = { skip = true }, },
                   { filter = { event = "msg_show", find = "cambios;" }, opts = { skip = true }, },
                   { filter = { event = "msg_show", find = "Este es el cambio más" }, opts = { skip = true }, },
+                  { filter = { event = "msg_show", find = "lines yanked" }, opts = { skip = true }, },
                 },
             })
         end

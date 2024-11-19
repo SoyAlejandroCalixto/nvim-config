@@ -8,6 +8,7 @@ return {
             vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<CR>')
             vim.keymap.set('n', '<leader>c', '<cmd>Telescope git_commits<CR>')
             vim.keymap.set('n', '<leader>C', '<cmd>Telescope git_bcommits<CR>')
+            vim.keymap.set('n', '<leader>p', '<cmd>Telescope diagnostics<CR>')
         end
     },
     {

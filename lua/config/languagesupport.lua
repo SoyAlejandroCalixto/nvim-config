@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- mason is the plugin that allows you to install lsp more easily by placing their names in the 'ensure_installed' list
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'lua_ls', 'pyright', 'html', 'cssls', 'tailwindcss', 'ts_ls', 'emmet_language_server', 'rust_analyzer' },
+    ensure_installed = { 'lua_ls', 'bashls', 'pyright', 'html', 'cssls', 'tailwindcss', 'ts_ls', 'emmet_language_server', 'rust_analyzer' },
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({})

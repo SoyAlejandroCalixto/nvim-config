@@ -55,14 +55,13 @@ require'nvim-treesitter.configs'.setup {
 -- nvim-lint is the plugin that allows you to run linters on the filetypes you specify
 -- set the linters you want to use in the 'ensure_installed' list and set the filetypes you want to lint in 'linters_by_ft' object
 require("mason-nvim-lint").setup({
-    ensure_installed = { 'eslint_d', 'flake8' },
+    ensure_installed = { 'eslint_d' },
     automatic_installation = true,
 })
 
 local lint = require("lint")
 lint.linters_by_ft = {
-    javascript = { 'eslint_d' },
-    python = { 'flake8' }
+    javascript = { 'eslint_d' }
 }
 
 -- Autocommand para ejecutar el linter al guardar o salir del modo de inserción

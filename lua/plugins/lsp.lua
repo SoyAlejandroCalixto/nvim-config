@@ -8,5 +8,4 @@ return {
     {'hrsh7th/cmp-nvim-lsp'},
     {'nvim-treesitter/nvim-treesitter'},
     { 'hrsh7th/nvim-cmp' },
-    { 'amber-lang/amber-vim' }
 }

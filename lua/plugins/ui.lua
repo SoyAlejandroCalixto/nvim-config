@@ -95,6 +95,7 @@ return {
                   { filter = { event = "msg_show", find = "Este es el cambio más" }, opts = { skip = true }, },
                   { filter = { event = "msg_show", find = "lines yanked" }, opts = { skip = true }, },
                   { filter = { event = "msg_show", find = "escritos" }, opts = { skip = true }, },
+                  { filter = { error = true, find = "server cancelled the request" }, opts = { skip = true }, },
                 },
             })
         end

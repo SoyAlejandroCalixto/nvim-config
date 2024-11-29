@@ -33,7 +33,8 @@ return {
         config = function()
             require("nvim-tree").setup({
                 view = {
-                  width = 38,
+                  side = 'right',
+                  width = 32,
                 }
             })
             vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<CR>")
@@ -80,7 +81,7 @@ return {
         },
         dependencies = {
           "MunifTanjim/nui.nvim",
-          "rcarriga/nvim-notify",
+          "rcarriga/nvim-notify"
         },
         config = function()
             require("noice").setup({
@@ -104,6 +105,27 @@ return {
       'nvimdev/dashboard-nvim',
       event = 'VimEnter',
       dependencies = { {'nvim-tree/nvim-web-devicons'}}
+    },
+    {
+        "rcarriga/nvim-notify",
+        opts = {
+            timeout = 3000,
+            render = "compact",
+            stages = "fade",
+            top_down = false,
+        }
+    },
+    {
+        "folke/trouble.nvim",
+        opts = {}, -- for default options, refer to the configuration section for custom setup.
+        cmd = "Trouble",
+        keys = {
+            {
+                "<leader>d",
+                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+                desc = "Diagnostics (Trouble)",
+            },
+        },
     },
     {
         "nvim-tree/nvim-web-devicons"

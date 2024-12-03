@@ -36,6 +36,16 @@ require('mason-lspconfig').setup({
         function(server_name)
             require('lspconfig')[server_name].setup({})
         end,
+        jsonls = function()
+            require('lspconfig').jsonls.setup({
+                settings = {
+                    json = {
+                        schemas = require('schemastore').json.schemas(),
+                        validate = { enable = true },
+                    },
+                },
+            })
+        end
     },
 })
 
@@ -94,3 +104,4 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true })
     }),
 })
+

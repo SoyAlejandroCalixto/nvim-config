@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- mason is the plugin that allows you to install lsp more easily by placing their names in the 'ensure_installed' list
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'lua_ls', 'bashls', 'pyright', 'html', 'cssls', 'tailwindcss', 'ts_ls', 'emmet_language_server', 'rust_analyzer', 'astro' },
+    ensure_installed = { 'lua_ls', 'bashls', 'pyright', 'html', 'cssls', 'tailwindcss', 'ts_ls', 'emmet_language_server', 'jsonls', 'omnisharp', 'rust_analyzer', 'astro' },
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({})
@@ -48,7 +48,7 @@ require'nvim-treesitter.configs'.setup {
     indent = {
         enable = true
     },
-    ensure_installed = { 'lua', 'bash', 'regex', 'python', 'html', 'css', 'javascript', 'typescript', 'tsx', 'rust', 'markdown', 'markdown_inline', 'astro' }
+    ensure_installed = { 'lua', 'bash', 'regex', 'python', 'html', 'css', 'javascript', 'typescript', 'tsx', 'c_sharp', 'rust', 'markdown', 'markdown_inline', 'astro' }
 }
 
 -- nvim-lint config

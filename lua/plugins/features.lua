@@ -29,4 +29,17 @@ return {
         require("supermaven-nvim").setup({ keymaps = { accept_suggestion = "<S-Tab>" } })
       end,
     },
+    {
+        "chrisgrieser/nvim-rip-substitute",
+        cmd = "RipSubstitute",
+        opts = {},
+        keys = {
+            {
+                "<leader>s",
+                function() require("rip-substitute").sub() end,
+                mode = { "n", "x" },
+                desc = " rip substitute",
+            },
+        },
+    },
 }

@@ -9,4 +9,5 @@ return {
     { "b0o/schemastore.nvim" }, -- JSON schemas
     { 'hrsh7th/nvim-cmp' }, -- autocompletion menu
     {'hrsh7th/cmp-nvim-lsp'}, -- autocompletion menu source
+    {'amber-lang/amber-vim'} -- amber lang support
 }

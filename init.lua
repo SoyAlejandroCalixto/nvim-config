@@ -9,6 +9,7 @@ vim.cmd('filetype plugin indent on')
 vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
 vim.keymap.set('i', 'jk', '<Esc>')
+vim.keymap.set('n', '<C-x>', '<cmd>bd<CR>')
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
 vim.keymap.set('i', '<C-s>', '<cmd>w<CR>')
 vim.keymap.set('n', '<C-h>', '<C-w>h')

@@ -20,7 +20,7 @@ return {
                 sections = {
                     lualine_a = {'mode'},
                     lualine_b = {'branch', 'diff', 'diagnostics'},
-                    lualine_c = {'filename'},
+                    lualine_c = {{ 'filename', symbols = { modified = '' } }},
                     lualine_x = {'filetype'},
                     lualine_y = {'progress'},
                     lualine_z = {'location'}
@@ -29,15 +29,42 @@ return {
         end
     },
     {
-        "nvim-tree/nvim-tree.lua",
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+            "3rd/image.nvim", -- Optional image support in preview window
+        },
+        keys = {
+            { "<leader>t", "<cmd>Neotree toggle<cr>" },
+            { "<leader>b", "<cmd>Neotree buffers toggle<cr>" },
+        },
         config = function()
-            require("nvim-tree").setup({
-                view = {
-                  side = 'right',
-                  width = 32,
+            vim.fn.sign_define("DiagnosticSignError", {text = " ", texthl = "DiagnosticSignError"})
+            vim.fn.sign_define("DiagnosticSignWarn", {text = " ", texthl = "DiagnosticSignWarn"})
+            vim.fn.sign_define("DiagnosticSignInfo", {text = " ", texthl = "DiagnosticSignInfo"})
+            vim.fn.sign_define("DiagnosticSignHint", {text = "󰌵", texthl = "DiagnosticSignHint"})
+
+            require("neo-tree").setup({
+                window = {
+                    width = 32
+                },
+                default_component_configs = {
+                    git_status = { symbols = {
+                        added     = "", modified  = "", deleted   = "",
+                        renamed   = "", untracked = "", ignored   = "",
+                        unstaged  = "", staged    = "", conflict  = "",
+                    }},
+                    diagnostics = { symbols = {
+                        error = " ",
+                        warn = " ",
+                        info = " ",
+                        hint = "󰌵",
+                    }},
                 }
             })
-            vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<CR>")
         end
     },
     {
@@ -120,11 +147,7 @@ return {
         opts = {}, -- for default options, refer to the configuration section for custom setup.
         cmd = "Trouble",
         keys = {
-            {
-                "<leader>d",
-                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-                desc = "Diagnostics (Trouble)",
-            },
+            { "<leader>d", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>" },
         },
     },
     {

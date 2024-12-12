@@ -9,66 +9,18 @@ return {
         end
     },
     {
-        'nvim-lualine/lualine.nvim',
+        'nvim-lualine/lualine.nvim', -- config in lua/config/lualine.lua
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = function()
-            require('lualine').setup({
-                options = {
-                    component_separators = { left = '', right = ''},
-                    section_separators = { left = '', right = ''},
-                },
-                sections = {
-                    lualine_a = {'mode'},
-                    lualine_b = {'branch', 'diff', 'diagnostics'},
-                    lualine_c = {{ 'filename', symbols = { modified = '' } }},
-                    lualine_x = {'filetype'},
-                    lualine_y = {'progress'},
-                    lualine_z = {'location'}
-                },
-            })
-        end
     },
     {
-        "nvim-neo-tree/neo-tree.nvim",
+        "nvim-neo-tree/neo-tree.nvim", -- config in lua/config/tree.lua
         branch = "v3.x",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
-            "3rd/image.nvim", -- Optional image support in preview window
-        },
-        keys = {
-            { "<leader>t", "<cmd>Neotree toggle<cr>" },
-            { "<leader>b", "<cmd>Neotree buffers toggle<cr>" },
-        },
-        config = function()
-            vim.fn.sign_define("DiagnosticSignError", {text = " ", texthl = "DiagnosticSignError"})
-            vim.fn.sign_define("DiagnosticSignWarn", {text = " ", texthl = "DiagnosticSignWarn"})
-            vim.fn.sign_define("DiagnosticSignInfo", {text = " ", texthl = "DiagnosticSignInfo"})
-            vim.fn.sign_define("DiagnosticSignHint", {text = "󰌵", texthl = "DiagnosticSignHint"})
-
-            require("neo-tree").setup({
-                window = {
-                    width = 32
-                },
-                default_component_configs = {
-                    git_status = { symbols = {
-                        added     = "", modified  = "", deleted   = "",
-                        renamed   = "", untracked = "", ignored   = "",
-                        unstaged  = "", staged    = "", conflict  = "",
-                    }},
-                    diagnostics = { symbols = {
-                        error = " ",
-                        warn = " ",
-                        info = " ",
-                        hint = "󰌵",
-                    }},
-                }
-            })
-        end
-    },
-    {
-        'HiPhish/rainbow-delimiters.nvim'
+            -- "3rd/image.nvim", -- Optional image support in preview window
+        }
     },
     {
       "folke/which-key.nvim",
@@ -129,7 +81,7 @@ return {
         end
     },
     {
-      'nvimdev/dashboard-nvim',
+      'nvimdev/dashboard-nvim', -- config in lua/config/dashboard.lua
       event = 'VimEnter',
       dependencies = { {'nvim-tree/nvim-web-devicons'}}
     },
@@ -144,19 +96,27 @@ return {
     },
     {
         "folke/trouble.nvim",
-        opts = {}, -- for default options, refer to the configuration section for custom setup.
+        opts = {},
         cmd = "Trouble",
         keys = {
-            { "<leader>d", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>" },
+            { "<leader>d", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>" },
         },
-    },
-    {
-        "nvim-tree/nvim-web-devicons"
     },
     {
         "norcalli/nvim-colorizer.lua",
         config = function()
             require("colorizer").setup()
         end
-    }
+    },
+    {
+        "voldikss/vim-floaterm",
+        config = function()
+            vim.keymap.set('t', '<C-q>', '<cmd>FloatermToggle<CR>')
+            vim.keymap.set('n', '<leader>s', '<cmd>FloatermToggle<CR>')
+            vim.g.floaterm_width = 0.8
+            vim.g.floaterm_height = 0.8
+        end
+    },
+    { 'HiPhish/rainbow-delimiters.nvim' },
+    { "nvim-tree/nvim-web-devicons" },
 }

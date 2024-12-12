@@ -34,7 +34,7 @@ return {
         opts = {},
         keys = {
             {
-                "<leader>s",
+                "<leader>r",
                 function() require("rip-substitute").sub() end,
                 mode = { "n", "x" },
                 desc = " rip substitute",

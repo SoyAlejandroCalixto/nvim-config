@@ -14,13 +14,14 @@ vim.opt.termguicolors = true
 
 -- keymaps
 vim.keymap.set('i', 'jk', '<Esc>')
-vim.keymap.set('n', '<C-x>', '<cmd>bd!<CR>')
+vim.keymap.set('n', '<C-q>', '<cmd>bd!<CR>')
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
 vim.keymap.set('i', '<C-s>', '<cmd>w<CR>')
 vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('t', '<C-x>', [[<C-\><C-n>]])
 
 -- indent
 vim.opt.tabstop = 4

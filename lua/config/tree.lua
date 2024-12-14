@@ -1,6 +1,7 @@
 require("neo-tree").setup({
     window = {
         width = 32,
+        position = "right"
     },
     default_component_configs = {
         git_status = { symbols = {

@@ -36,6 +36,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('t', '<C-x>', [[<C-\><C-n>]])
+vim.keymap.set('n', '=', 'gg=G')
 
 -- diagnostic icons
 vim.diagnostic.config({
@@ -54,6 +55,7 @@ require("config.lazy")
 
 if vim.g.vscode then -- if you are in vscode with 'vscode-neovim' extension to have neovim integration
     vim.o.cmdheight = 99
+    vim.keymap.set('v', '=', ':<C-u>normal! gv=g<CR>', { noremap = true, silent = true })
 else
     require("config.languagesupport")
     require("config.lualine")

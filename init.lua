@@ -52,16 +52,8 @@ vim.diagnostic.config({
 
 -- imports
 require("config.lazy")
-
-if vim.g.vscode then -- if you are in vscode with 'vscode-neovim' extension to have neovim integration
-    vim.o.cmdheight = 99
-    vim.keymap.set('v', '=', ':<C-u>normal! gv=g<CR>', { noremap = true, silent = true })
-else
-    require("config.languagesupport")
-    require("config.lualine")
-    require("config.tree")
-    require("config.dashboard")
-end
-
--- imports
+require("config.languagesupport")
+require("config.lualine")
+require("config.tree")
+require("config.dashboard")
 

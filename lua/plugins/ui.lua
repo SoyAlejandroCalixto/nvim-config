@@ -1,17 +1,20 @@
 return {
     {
         'Mofiqul/dracula.nvim',
+        cond = not vim.g.vscode,
         config = function()
             vim.cmd('colorscheme dracula')
         end
     },
     {
         'nvim-lualine/lualine.nvim', -- config in lua/config/lualine.lua
+        cond = not vim.g.vscode,
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
     {
         "nvim-neo-tree/neo-tree.nvim", -- config in lua/config/tree.lua
         branch = "v3.x",
+        cond = not vim.g.vscode,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
@@ -20,22 +23,24 @@ return {
         }
     },
     {
-      "folke/which-key.nvim",
-      event = "VeryLazy",
-      opts = {
-      },
-      keys = {
-        {
-          "<leader>?",
-          function()
-            require("which-key").show({ global = false })
-          end,
-          desc = "Buffer Local Keymaps (which-key)",
+        "folke/which-key.nvim",
+        cond = not vim.g.vscode,
+        event = "VeryLazy",
+        opts = {
         },
-      },
+        keys = {
+            {
+                "<leader>?",
+                function()
+                    require("which-key").show({ global = false })
+                end,
+                desc = "Buffer Local Keymaps (which-key)",
+            },
+        },
     },
     {
         "lukas-reineke/indent-blankline.nvim",
+        cond = not vim.g.vscode,
         main = "ibl",
         ---@module "ibl"
         ---@type ibl.config
@@ -52,38 +57,41 @@ return {
     },
     {
         "folke/noice.nvim",
+        cond = not vim.g.vscode,
         event = "VeryLazy",
         opts = {
         },
         dependencies = {
-          "MunifTanjim/nui.nvim",
-          "rcarriga/nvim-notify"
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify"
         },
         config = function()
             require("noice").setup({
                 routes = {
-                  { filter = { event = "msg_show", find = "línea más" }, opts = { skip = true }, },
-                  { filter = { event = "msg_show", find = "líneas más" }, opts = { skip = true }, },
-                  { filter = { event = "msg_show", find = "línea menos" }, opts = { skip = true }, },
-                  { filter = { event = "msg_show", find = "líneas menos" }, opts = { skip = true }, },
-                  { filter = { event = "msg_show", find = "fewer lines" }, opts = { skip = true }, },
-                  { filter = { event = "msg_show", find = "cambio;" }, opts = { skip = true }, },
-                  { filter = { event = "msg_show", find = "cambios;" }, opts = { skip = true }, },
-                  { filter = { event = "msg_show", find = "Este es el cambio más" }, opts = { skip = true }, },
-                  { filter = { event = "msg_show", find = "lines yanked" }, opts = { skip = true }, },
-                  { filter = { event = "msg_show", find = "escritos" }, opts = { skip = true }, },
-                  { filter = { error = true, find = "server cancelled the request" }, opts = { skip = true }, },
+                    { filter = { event = "msg_show", find = "línea más" }, opts = { skip = true }, },
+                    { filter = { event = "msg_show", find = "líneas más" }, opts = { skip = true }, },
+                    { filter = { event = "msg_show", find = "línea menos" }, opts = { skip = true }, },
+                    { filter = { event = "msg_show", find = "líneas menos" }, opts = { skip = true }, },
+                    { filter = { event = "msg_show", find = "fewer lines" }, opts = { skip = true }, },
+                    { filter = { event = "msg_show", find = "cambio;" }, opts = { skip = true }, },
+                    { filter = { event = "msg_show", find = "cambios;" }, opts = { skip = true }, },
+                    { filter = { event = "msg_show", find = "Este es el cambio más" }, opts = { skip = true }, },
+                    { filter = { event = "msg_show", find = "lines yanked" }, opts = { skip = true }, },
+                    { filter = { event = "msg_show", find = "escritos" }, opts = { skip = true }, },
+                    { filter = { error = true, find = "server cancelled the request" }, opts = { skip = true }, },
                 },
             })
         end
     },
     {
-      'nvimdev/dashboard-nvim', -- config in lua/config/dashboard.lua
-      event = 'VimEnter',
-      dependencies = { {'nvim-tree/nvim-web-devicons'}}
+        'nvimdev/dashboard-nvim', -- config in lua/config/dashboard.lua
+        cond = not vim.g.vscode,
+        event = 'VimEnter',
+        dependencies = { {'nvim-tree/nvim-web-devicons'}}
     },
     {
         "rcarriga/nvim-notify",
+        cond = not vim.g.vscode,
         opts = {
             timeout = 3000,
             render = "compact",
@@ -93,6 +101,7 @@ return {
     },
     {
         "folke/trouble.nvim",
+        cond = not vim.g.vscode,
         opts = {},
         cmd = "Trouble",
         keys = {
@@ -101,12 +110,14 @@ return {
     },
     {
         "norcalli/nvim-colorizer.lua",
+        cond = not vim.g.vscode,
         config = function()
             require("colorizer").setup()
         end
     },
     {
         "voldikss/vim-floaterm",
+        cond = not vim.g.vscode,
         config = function()
             vim.keymap.set('t', '<C-q>', '<cmd>FloatermToggle<CR>')
             vim.keymap.set('n', '<leader>s', '<cmd>FloatermToggle<CR>')
@@ -114,6 +125,12 @@ return {
             vim.g.floaterm_height = 0.8
         end
     },
-    { 'HiPhish/rainbow-delimiters.nvim' },
-    { "nvim-tree/nvim-web-devicons" },
+    {
+        'HiPhish/rainbow-delimiters.nvim',
+        cond = not vim.g.vscode,
+    },
+    {
+        "nvim-tree/nvim-web-devicons",
+        cond = not vim.g.vscode,
+    }
 }

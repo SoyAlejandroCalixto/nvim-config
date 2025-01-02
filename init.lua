@@ -12,17 +12,6 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.shiftwidth = 4
 vim.opt.termguicolors = true
 
--- keymaps
-vim.keymap.set('i', 'jk', '<Esc>')
-vim.keymap.set('n', '<C-q>', '<cmd>bd!<CR>')
-vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
-vim.keymap.set('i', '<C-s>', '<cmd>w<CR>')
-vim.keymap.set('n', '<C-h>', '<C-w>h')
-vim.keymap.set('n', '<C-l>', '<C-w>l')
-vim.keymap.set('n', '<C-j>', '<C-w>j')
-vim.keymap.set('n', '<C-k>', '<C-w>k')
-vim.keymap.set('t', '<C-x>', [[<C-\><C-n>]])
-
 -- indent
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
@@ -36,6 +25,17 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.shiftwidth = 2
     end,
 })
+
+-- keymaps
+vim.keymap.set('i', 'jk', '<Esc>')
+vim.keymap.set('n', '<C-q>', '<cmd>bd!<CR>')
+vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
+vim.keymap.set('i', '<C-s>', '<cmd>w<CR>')
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('t', '<C-x>', [[<C-\><C-n>]])
 
 -- diagnostic icons
 vim.diagnostic.config({
@@ -51,7 +51,15 @@ vim.diagnostic.config({
 
 -- imports
 require("config.lazy")
-require("config.languagesupport")
-require("config.lualine")
-require("config.tree")
-require("config.dashboard")
+
+if vim.g.vscode then -- if you are in vscode with 'vscode-neovim' extension to have neovim integration
+    vim.o.cmdheight = 99
+else
+    require("config.languagesupport")
+    require("config.lualine")
+    require("config.tree")
+    require("config.dashboard")
+end
+
+-- imports
+

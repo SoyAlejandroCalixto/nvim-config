@@ -1,20 +1,17 @@
 return {
     {
         'Mofiqul/dracula.nvim',
-        cond = not vim.g.vscode,
         config = function()
             vim.cmd('colorscheme dracula')
         end
     },
     {
         'nvim-lualine/lualine.nvim', -- config in lua/config/lualine.lua
-        cond = not vim.g.vscode,
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
     {
         "nvim-neo-tree/neo-tree.nvim", -- config in lua/config/tree.lua
         branch = "v3.x",
-        cond = not vim.g.vscode,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
@@ -24,7 +21,6 @@ return {
     },
     {
         "folke/which-key.nvim",
-        cond = not vim.g.vscode,
         event = "VeryLazy",
         opts = {
         },
@@ -40,7 +36,6 @@ return {
     },
     {
         "lukas-reineke/indent-blankline.nvim",
-        cond = not vim.g.vscode,
         main = "ibl",
         ---@module "ibl"
         ---@type ibl.config
@@ -57,7 +52,6 @@ return {
     },
     {
         "folke/noice.nvim",
-        cond = not vim.g.vscode,
         event = "VeryLazy",
         opts = {
         },
@@ -85,13 +79,11 @@ return {
     },
     {
         'nvimdev/dashboard-nvim', -- config in lua/config/dashboard.lua
-        cond = not vim.g.vscode,
         event = 'VimEnter',
         dependencies = { {'nvim-tree/nvim-web-devicons'}}
     },
     {
         "rcarriga/nvim-notify",
-        cond = not vim.g.vscode,
         opts = {
             timeout = 3000,
             render = "compact",
@@ -101,7 +93,6 @@ return {
     },
     {
         "folke/trouble.nvim",
-        cond = not vim.g.vscode,
         opts = {},
         cmd = "Trouble",
         keys = {
@@ -110,14 +101,12 @@ return {
     },
     {
         "norcalli/nvim-colorizer.lua",
-        cond = not vim.g.vscode,
         config = function()
             require("colorizer").setup()
         end
     },
     {
         "voldikss/vim-floaterm",
-        cond = not vim.g.vscode,
         config = function()
             vim.keymap.set('t', '<C-q>', '<cmd>FloatermToggle<CR>')
             vim.keymap.set('n', '<leader>s', '<cmd>FloatermToggle<CR>')
@@ -127,10 +116,8 @@ return {
     },
     {
         'HiPhish/rainbow-delimiters.nvim',
-        cond = not vim.g.vscode,
     },
     {
         "nvim-tree/nvim-web-devicons",
-        cond = not vim.g.vscode,
     }
 }

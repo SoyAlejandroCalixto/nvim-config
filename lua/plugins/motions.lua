@@ -26,12 +26,10 @@ return {
     },
     {
         'windwp/nvim-autopairs',
-        cond = not vim.g.vscode,
         event = "InsertEnter",
         config = true
     },
     {
         'mg979/vim-visual-multi',
-        cond = not vim.g.vscode
     }
 }

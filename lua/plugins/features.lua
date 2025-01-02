@@ -1,7 +1,6 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
-        cond = not vim.g.vscode,
         tag = "0.1.8",
         config = function()
             require('telescope').setup({
@@ -18,7 +17,6 @@ return {
     },
     {
         'IogaMaster/neocord',
-        cond = not vim.g.vscode,
         event = "VeryLazy",
         config = function()
             require('neocord').setup({})
@@ -26,14 +24,12 @@ return {
     },
     {
       "supermaven-inc/supermaven-nvim",
-        cond = not vim.g.vscode,
       config = function()
         require("supermaven-nvim").setup({ keymaps = { accept_suggestion = "<S-Tab>" } })
       end,
     },
     {
         "chrisgrieser/nvim-rip-substitute",
-        cond = not vim.g.vscode,
         cmd = "RipSubstitute",
         opts = {},
         keys = {

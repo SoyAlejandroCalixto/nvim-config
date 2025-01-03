@@ -10,6 +10,22 @@ return {
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
     {
+        'romgrk/barbar.nvim',
+        dependencies = {
+            'lewis6991/gitsigns.nvim',
+            'nvim-tree/nvim-web-devicons',
+        },
+        init = function() vim.g.barbar_auto_setup = false end,
+        version = '^1.0.0',
+        config = function()
+            require('barbar').setup({
+                maximum_padding = 1
+            })
+            vim.keymap.set('n', '<tab>', '<cmd>BufferNext<CR>')
+            vim.keymap.set('n', '<S-tab>', '<cmd>BufferPrevious<CR>')
+        end
+    },
+    {
         "nvim-neo-tree/neo-tree.nvim", -- config in lua/config/tree.lua
         branch = "v3.x",
         dependencies = {
@@ -104,15 +120,6 @@ return {
         "norcalli/nvim-colorizer.lua",
         config = function()
             require("colorizer").setup()
-        end
-    },
-    {
-        "voldikss/vim-floaterm",
-        config = function()
-            vim.keymap.set('t', '<C-q>', '<cmd>FloatermToggle<CR>')
-            vim.keymap.set('n', '<leader>s', '<cmd>FloatermToggle<CR>')
-            vim.g.floaterm_width = 0.8
-            vim.g.floaterm_height = 0.8
         end
     },
     {

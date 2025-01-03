@@ -14,6 +14,7 @@ vim.opt.termguicolors = true
 
 -- indent
 vim.opt.tabstop = 4
+vim.opt_local.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.cmd('filetype plugin indent on')

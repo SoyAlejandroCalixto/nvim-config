@@ -31,4 +31,3 @@ require("neo-tree").setup({
 })
 
 vim.keymap.set("n", "<leader>t", "<cmd>Neotree toggle<cr>")
-vim.keymap.set("n", "<leader>b", "<cmd>Neotree buffers toggle<cr>")

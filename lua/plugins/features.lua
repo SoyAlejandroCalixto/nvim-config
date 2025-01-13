@@ -24,10 +24,26 @@ return {
         end
     },
     {
-      "supermaven-inc/supermaven-nvim",
-      config = function()
-        require("supermaven-nvim").setup({ keymaps = { accept_suggestion = "<S-Tab>" } })
-      end,
+        "CopilotC-Nvim/CopilotChat.nvim",
+        dependencies = {
+            { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+            { "nvim-lua/plenary.nvim", branch = "master" },
+        },
+        build = "make tiktoken", -- Only on MacOS or Linux
+        config = function()
+            require("CopilotChat").setup({
+                window = {
+                    layout = "float",
+                    relative = "win",
+                    width = 0.4,
+                    height = 1,
+                    col = 999,
+                }
+            })
+            vim.api.nvim_set_keymap('i', '<S-tab>', 'copilot#Accept("<CR>")', { expr=true, noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', '<leader>a', '<cmd>CopilotChatToggle<CR>', { noremap = true, silent = true })
+            vim.g.copilot_no_tab_map = true
+        end
     },
     {
         "chrisgrieser/nvim-rip-substitute",

@@ -1,25 +1,25 @@
-require("neo-tree").setup({
+require('neo-tree').setup({
     window = {
         width = 32,
-        position = "right"
+        position = 'right'
     },
     default_component_configs = {
         git_status = { symbols = {
-            added     = "",
-            modified  = "",
-            deleted   = "",
-            renamed   = "",
-            untracked = "",
-            ignored   = "",
-            unstaged  = "",
-            staged    = "",
-            conflict  = "",
+            added     = '',
+            modified  = '',
+            deleted   = '',
+            renamed   = '',
+            untracked = '',
+            ignored   = '',
+            unstaged  = '',
+            staged    = '',
+            conflict  = '',
         }},
         diagnostics = { symbols = {
-            error = " ",
-            warn = " ",
-            info = " ",
-            hint = "󰌵",
+            error = ' ',
+            warn = ' ',
+            info = ' ',
+            hint = '󰌵',
         }},
     },
     filesystem = {
@@ -30,4 +30,4 @@ require("neo-tree").setup({
     }
 })
 
-vim.keymap.set("n", "<leader>t", "<cmd>Neotree toggle<cr>")
+vim.keymap.set('n', '<leader>t', '<cmd>Neotree toggle<cr>')

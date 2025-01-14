@@ -6,126 +6,103 @@ return {
         end
     },
     {
-        'nvim-lualine/lualine.nvim', -- config in lua/config/lualine.lua
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        'nvim-lualine/lualine.nvim', -- Config -> lua/config/lualine.lua
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
     {
         'romgrk/barbar.nvim',
         dependencies = {
             'lewis6991/gitsigns.nvim',
-            'nvim-tree/nvim-web-devicons',
+            'nvim-tree/nvim-web-devicons'
         },
         init = function() vim.g.barbar_auto_setup = false end,
         version = '^1.0.0',
-        config = function()
-            require('barbar').setup({
-                maximum_padding = 1
-            })
-            vim.keymap.set('n', '<tab>', '<cmd>BufferNext<CR>')
-            vim.keymap.set('n', '<S-tab>', '<cmd>BufferPrevious<CR>')
-        end
-    },
-    {
-        "nvim-neo-tree/neo-tree.nvim", -- config in lua/config/tree.lua
-        branch = "v3.x",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons",
-            "MunifTanjim/nui.nvim",
-            -- "3rd/image.nvim", -- Optional image support in preview window
+        event = 'BufWinEnter',
+        opts = {
+            maximum_padding = 1
+        },
+        keys = {
+            { '<tab>', '<cmd>BufferNext<CR>' },
+            { '<S-tab>', '<cmd>BufferPrevious<CR>' }
         }
     },
     {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
+        'nvim-neo-tree/neo-tree.nvim', -- Config -> lua/config/tree.lua
+        branch = 'v3.x',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-tree/nvim-web-devicons',
+            'MunifTanjim/nui.nvim'
+        }
+    },
+    {
+        'folke/which-key.nvim',
+        event = 'VeryLazy',
         opts = {
         },
         keys = {
             {
-                "<leader>?",
+                '<leader>?',
                 function()
-                    require("which-key").show({ global = false })
+                    require('which-key').show({ global = false })
                 end,
-                desc = "Buffer Local Keymaps (which-key)",
+                desc = 'Buffer Local Keymaps (which-key)',
             },
         },
     },
     {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        ---@module "ibl"
-        ---@type ibl.config
+        'lukas-reineke/indent-blankline.nvim',
+        main = 'ibl',
         opts = {},
         config = function()
-            require("ibl").setup({
+            require('ibl').setup({
                 exclude = { filetypes = {
                     'dashboard'
                 }},
                 indent = { char = '│' },
-                scope = { show_start = false, show_end = false },
-            })
-        end
-    },
-    {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        opts = {
-        },
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify"
-        },
-        config = function()
-            require("noice").setup({
-                routes = {
-                    { filter = { event = "msg_show", find = "línea más" }, opts = { skip = true }, },
-                    { filter = { event = "msg_show", find = "líneas más" }, opts = { skip = true }, },
-                    { filter = { event = "msg_show", find = "línea menos" }, opts = { skip = true }, },
-                    { filter = { event = "msg_show", find = "líneas menos" }, opts = { skip = true }, },
-                    { filter = { event = "msg_show", find = "fewer lines" }, opts = { skip = true }, },
-                    { filter = { event = "msg_show", find = "cambio;" }, opts = { skip = true }, },
-                    { filter = { event = "msg_show", find = "cambios;" }, opts = { skip = true }, },
-                    { filter = { event = "msg_show", find = "Este es el cambio más" }, opts = { skip = true }, },
-                    { filter = { event = "msg_show", find = "lines yanked" }, opts = { skip = true }, },
-                    { filter = { event = "msg_show", find = "escritos" }, opts = { skip = true }, },
-                    { filter = { event = "msg_show", find = "lines indented" }, opts = { skip = true }, },
-                    { filter = { error = true, find = "server cancelled the request" }, opts = { skip = true }, },
+                scope = {
+                    show_start = false,
+                    show_end = false
                 },
             })
         end
     },
     {
-        'nvimdev/dashboard-nvim', -- config in lua/config/dashboard.lua
-        event = 'VimEnter',
-        dependencies = { {'nvim-tree/nvim-web-devicons'}}
+        'folke/noice.nvim', -- Config in lua/config/noice.lua
+        dependencies = {
+            'MunifTanjim/nui.nvim',
+            'rcarriga/nvim-notify'
+        }
     },
     {
-        "rcarriga/nvim-notify",
+        'rcarriga/nvim-notify',
         opts = {
             timeout = 3000,
-            render = "compact",
-            stages = "fade",
+            render = 'compact',
+            stages = 'fade',
             top_down = false,
         }
     },
     {
-        "folke/trouble.nvim",
+        'nvimdev/dashboard-nvim', -- Config in lua/config/dashboard.lua
+        event = 'VimEnter',
+        dependencies = { {'nvim-tree/nvim-web-devicons'}}
+    },
+    {
+        'folke/trouble.nvim',
         opts = {},
-        cmd = "Trouble",
+        cmd = 'Trouble',
         keys = {
-            { "<leader>d", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>" },
+            { '<leader>d', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>' },
         },
     },
     {
-        "norcalli/nvim-colorizer.lua",
+        'norcalli/nvim-colorizer.lua',
         config = function()
-            require("colorizer").setup()
+            require('colorizer').setup()
         end
     },
     {
         'HiPhish/rainbow-delimiters.nvim',
-    },
-    {
-        "nvim-tree/nvim-web-devicons",
     }
 }

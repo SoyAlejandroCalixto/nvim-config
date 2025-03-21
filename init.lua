@@ -34,9 +34,6 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('t', '<C-x>', [[<C-\><C-n>]])
-vim.keymap.set('v', 'p', '"_dP')
-vim.keymap.set('n', 'x', '"_x')
-vim.keymap.set('n', 'dD', '"_dd')
 
 -- Diagnostic icons
 vim.diagnostic.config({

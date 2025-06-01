@@ -1,8 +1,10 @@
 return {
     {
-        'Mofiqul/dracula.nvim',
+        'catppuccin/nvim',
+        name = 'catppuccin',
+        priority = 1000,
         config = function()
-            vim.cmd('colorscheme dracula')
+            vim.cmd('colorscheme catppuccin-macchiato')
         end
     },
     {

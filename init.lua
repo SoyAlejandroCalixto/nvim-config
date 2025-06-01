@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Keymaps
 vim.keymap.set('i', 'jk', '<Esc>')
-vim.keymap.set('n', '<C-q>', '<cmd>bd!<CR>')
+vim.keymap.set('n', '<C-w>', '<cmd>bd!<CR>')
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
 vim.keymap.set('i', '<C-s>', '<cmd>w<CR>')
 vim.keymap.set('n', '<C-h>', '<C-w>h')

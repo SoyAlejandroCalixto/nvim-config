@@ -27,13 +27,19 @@ return {
         end
     },
     {
+        "supermaven-inc/supermaven-nvim",
+        config = function()
+            require("supermaven-nvim").setup({ keymaps = { accept_suggestion = "<S-Tab>" } })
+        end,
+    },
+    {
         'zbirenbaum/copilot.lua',
         cmd = 'Copilot',
         build = ':Copilot auth',
         event = 'InsertEnter',
         opts = {
             suggestion = {
-                auto_trigger = true,
+                auto_trigger = false,
                 keymap = {
                     accept = '<S-tab>'
                 },

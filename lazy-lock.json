@@ -32,6 +32,7 @@
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "55ad4fb76ab68460f700599b7449385f0c4e858e" },
   "schemastore.nvim": { "branch": "main", "commit": "6c52c57432280c54596feb0c0958e1a6cb546f4d" },
+  "supermaven-nvim": { "branch": "main", "commit": "07d20fce48a5629686aefb0a7cd4b25e33947d50" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "trouble.nvim": { "branch": "main", "commit": "85bedb7eb7fa331a2ccbecb9202d8abba64d37b3" },
   "vim-easymotion": { "branch": "master", "commit": "b3cfab2a6302b3b39f53d9fd2cd997e1127d7878" },

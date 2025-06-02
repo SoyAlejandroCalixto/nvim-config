@@ -29,7 +29,7 @@ return {
     {
         "supermaven-inc/supermaven-nvim",
         config = function()
-            require("supermaven-nvim").setup({ keymaps = { accept_suggestion = "<S-Tab>" } })
+            require("supermaven-nvim").setup({ keymaps = { accept_suggestion = "<S-tab>" } })
         end,
     },
     {
@@ -39,10 +39,7 @@ return {
         event = 'InsertEnter',
         opts = {
             suggestion = {
-                auto_trigger = false,
-                keymap = {
-                    accept = '<S-tab>'
-                },
+                enabled = false
             }
         },
     },

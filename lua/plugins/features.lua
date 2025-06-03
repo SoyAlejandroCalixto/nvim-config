@@ -29,20 +29,9 @@ return {
     {
         "supermaven-inc/supermaven-nvim",
         config = function()
+            vim.g.copilot_enabled = false
             require("supermaven-nvim").setup({ keymaps = { accept_suggestion = "<S-tab>" } })
         end,
-    },
-    {
-        'zbirenbaum/copilot.lua',
-        cmd = 'Copilot',
-        build = ':Copilot auth',
-        event = 'InsertEnter',
-        opts = {
-            suggestion = {
-                enabled = false,
-                auto_trigger = false
-            }
-        },
     },
     {
         'CopilotC-Nvim/CopilotChat.nvim',

@@ -39,7 +39,8 @@ return {
         event = 'InsertEnter',
         opts = {
             suggestion = {
-                enabled = false
+                enabled = false,
+                auto_trigger = false
             }
         },
     },

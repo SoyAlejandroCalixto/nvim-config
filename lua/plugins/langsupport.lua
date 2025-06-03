@@ -28,5 +28,8 @@ return {
     },
     {
         'hrsh7th/cmp-nvim-lsp', -- Autocompletion menu source
+    },
+    {
+        'elkowar/yuck.vim' -- Yuck lang support
     }
 }

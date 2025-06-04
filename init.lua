@@ -37,6 +37,9 @@ vim.keymap.set('t', '<C-x>', [[<C-\><C-n>]])
 
 -- Diagnostic icons
 vim.diagnostic.config({
+    virtual_text = {
+        spacing = 2,
+    },
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = '',

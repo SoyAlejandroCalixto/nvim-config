@@ -42,7 +42,7 @@ return {
     event = 'InsertEnter',
     build = ':Copilot auth',
     opts = { suggestion = {
-      keymap = { accept = '<tab>' },
+      keymap = { accept = '<S-tab>' },
       auto_trigger = true
     }},
     dependences = { 'copilotlsp-nvim/copilot-lsp' }

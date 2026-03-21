@@ -17,14 +17,10 @@ return {
   },
   {
     "mason-org/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = { 'lua_ls', 'ts_ls', 'pyright', 'bashls', 'jsonls', 'jdtls' }, -- LSPs to install
-        automatic_installation = true
-      })
-      -- Settings for specific languages
-      vim.lsp.config.jdtls = { cmd = { 'jdtls', "--jvm-arg=-javaagent:"..vim.fn.expand('~/.local/share/nvim/mason/packages/jdtls/lombok.jar') } }
-    end
+    opts = {
+      ensure_installed = { 'lua_ls', 'ts_ls', 'pyright', 'bashls', 'jsonls', 'jdtls' }, -- LSPs to install
+      automatic_installation = true
+    }
   },
   {
     'nvim-treesitter/nvim-treesitter',
@@ -38,5 +34,6 @@ return {
       })
       vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end
-  }
+  },
+  { "mfussenegger/nvim-jdtls" } -- Java better support
 }

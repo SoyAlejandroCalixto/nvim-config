@@ -11,7 +11,7 @@ return {
     opts = {
       keymap = {
         preset = 'default',
-        ['<Enter>'] = { 'accept', 'fallback' }
+        ['<CR>'] = { 'accept', 'fallback' }
       }
     }
   },

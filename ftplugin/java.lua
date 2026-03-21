@@ -16,8 +16,4 @@ jdtls.start_or_attach({
       contentProvider = { preferred = 'fernflower' },
     },
   },
-
-  on_attach = function(client, bufnr)
-    jdtls.setup_dap({ hotcodereplace = 'auto' })
-  end,
 })

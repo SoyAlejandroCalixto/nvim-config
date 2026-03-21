@@ -41,7 +41,10 @@ return {
     'zbirenbaum/copilot.lua',
     event = 'InsertEnter',
     build = ':Copilot auth',
-    opts = { suggestion = { auto_trigger = true } },
+    opts = { suggestion = {
+      keymap = { accept = '<tab>' },
+      auto_trigger = true
+    }},
     dependences = { 'copilotlsp-nvim/copilot-lsp' }
   },
   {

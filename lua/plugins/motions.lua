@@ -1,7 +1,6 @@
 return {
-    {
-        'easymotion/vim-easymotion',
-    },
+    { 'easymotion/vim-easymotion' },
+    { 'mg979/vim-visual-multi' },
     {
       'folke/flash.nvim',
       event = 'VeryLazy',
@@ -18,16 +17,11 @@ return {
         'kylechui/nvim-surround',
         version = '*',
         event = 'VeryLazy',
-        config = function()
-            require('nvim-surround').setup({})
-        end
+        config = function() require('nvim-surround').setup({}) end
     },
     {
         'windwp/nvim-autopairs',
         event = 'InsertEnter',
         config = true
-    },
-    {
-        'mg979/vim-visual-multi'
     }
 }

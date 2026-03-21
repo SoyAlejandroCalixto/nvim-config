@@ -1,35 +1,38 @@
 return {
-    {
-        'neovim/nvim-lspconfig', -- Config language servers
-    },
-    {
-        'williamboman/mason.nvim', -- Install language servers and linters
-    },
-    {
-        'williamboman/mason-lspconfig.nvim', -- Integrates mason with lspconfig
-    },
-    {
-        'mfussenegger/nvim-lint', -- Config linters
-    },
-    {
-        'rshkarin/mason-nvim-lint', -- Integrates mason with nvim-lint
-    },
-    {
-        'L3MON4D3/LuaSnip', -- Config snippets
-    },
-    {
-        'nvim-treesitter/nvim-treesitter', -- Config syntax highlighting
-    },
-    {
-        'b0o/schemastore.nvim', -- JSON schemas
-    },
-    {
-        'hrsh7th/nvim-cmp', -- Autocompletion menu
-    },
-    {
-        'hrsh7th/cmp-nvim-lsp', -- Autocompletion menu source
-    },
-    {
-        'elkowar/yuck.vim' -- Yuck lang support
+  { "neovim/nvim-lspconfig" },
+  { "rafamadriz/friendly-snippets" },
+  {
+    "mason-org/mason.nvim", -- Install LSPs
+    opts = {}
+  },
+  {
+    "saghen/blink.cmp", -- Autocompletion
+    version = '1.*',
+    opts = {
+      keymap = {
+        preset = 'default',
+        ['<Enter>'] = { 'accept', 'fallback' }
+      }
     }
+  },
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = { "lua_ls", "ts_ls", "pyright", "bashls", "jsonls", "jdtls" }, -- LSPs to install
+      automatic_installation = true
+    },
+  },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function()
+      local langs = { 'lua', 'javascript', 'typescript', 'python', 'java', 'bash', 'json' }
+      require('nvim-treesitter').install(langs)
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = langs,
+        callback = function() vim.treesitter.start() end,
+      })
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  }
 }

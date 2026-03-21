@@ -1,4 +1,6 @@
--- Misc options
+-- VANILLA NEOVIM CONF --
+
+-- Misc
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
@@ -10,21 +12,21 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.termguicolors = true
 
 -- Indent
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.cmd('filetype plugin indent on')
 
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = {'javascript', 'typescript', 'javascriptreact', 'typescriptreact'},
+    pattern = {'python'},
     callback = function()
-        vim.opt_local.tabstop = 2
-        vim.opt_local.shiftwidth = 2
+        vim.opt_local.tabstop = 4
+        vim.opt_local.shiftwidth = 4
     end,
 })
 
--- Keymaps
+-- Binds
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('n', '<C-q>', '<cmd>bd!<CR>')
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
@@ -35,26 +37,9 @@ vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('t', '<C-x>', [[<C-\><C-n>]])
 
--- Diagnostic icons
-vim.diagnostic.config({
-    virtual_text = {
-        spacing = 2,
-    },
-    signs = {
-        text = {
-            [vim.diagnostic.severity.ERROR] = '',
-            [vim.diagnostic.severity.WARN] = '',
-            [vim.diagnostic.severity.INFO] = '',
-            [vim.diagnostic.severity.HINT] = '󰌵',
-        },
-    },
-})
-
--- Imports
-require('config.lazy')
-require('config.langsupport')
-require('config.lualine')
-require('config.tree')
-require('config.noice')
-require('config.dashboard')
-
+-- IMPORTS --
+require("config.lazy")
+require("config.dashboard")
+require("config.lualine")
+require("config.neotree")
+require("config.noice")

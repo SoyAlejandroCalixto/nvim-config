@@ -37,6 +37,12 @@ return {
     }
   },
   {
+    'stevearc/oil.nvim',
+    opts = {},
+    keys = { { '<leader>F', '<cmd>Oil<CR>' } },
+    lazy = false,
+  },
+  {
     'folke/which-key.nvim',
     event = 'VeryLazy',
     opts = {},
